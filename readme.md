@@ -13,5 +13,6 @@ It displays the current time in real time using the `time` module and `tkinter`.
 pyinstaller --windowed --onefile --icon=clock_icon.icns Timeis.py
 ```
 
+***
 ### Image Credits
 - _대탈출 시즌 3 ep.1_
