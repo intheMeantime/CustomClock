@@ -29,7 +29,7 @@ def update_time():
             fg="#999999"
     )
     
-    # update per 200ms (for smooth..)
+    # update every 200ms (to be smooth..)
     clock_label.after(200, update_time)
 
 
@@ -44,20 +44,19 @@ def toggle_display(event):
             text=random_quote,
             font=("Courier New", 20, 'bold'),
             fg="#ba9604",
-            wraplength=200,  # 가로 200px 넘으면 자동으로 줄바꿈 함
-            justify="center"  # 가운데 정렬
+            wraplength=200,  # auto line-break
+            justify="center"
         )
         date_label.config(text="")
     else:
-        # 다시 시계 보여주기
         update_time()
 
 
 
 '''
-# 초기 색깔 밝기 조절 변수
+# Initial color brightness control variable
 brightness = 0
-increasing = True  # 밝기 증가 중인지 여부
+increasing = True  # Whether the brightness is increasing?
 def animate_blink():
     global brightness, increasing
 
@@ -70,13 +69,13 @@ def animate_blink():
         if brightness <= 0:
             increasing = True
 
-    # 밝기에 따라 글자 색 변경 (민트색 계열)
-    color_value = int(170 + (brightness * 0.85))  # 170~255 범위
-    hex_color = f"#{0:02X}{255:02X}{color_value:02X}"  # R=0, G=255, B=변화
+    # Change text color according to brightness (mint color series)
+    color_value = int(170 + (brightness * 0.85))  # 170~255
+    hex_color = f"#{0:02X}{255:02X}{color_value:02X}"  # R=0, G=255, B={change}
 
     clock_label.config(fg=hex_color)
 
-    clock_label.after(100, animate_blink)  # 0.1초마다 변경
+    clock_label.after(100, animate_blink)  # change every 0.1s
 '''
 
 
@@ -90,7 +89,7 @@ root.geometry("250x110")
 root.configure(bg="#323232")
 root.resizable(False, False)
 
-# CLOCK
+# TIME
 clock_label = tk.Label(
     root,
     font=("Helvetica Neue", 40),
@@ -106,7 +105,7 @@ date_label = tk.Label(
 )
 date_label.pack()
 
-# 클릭 이벤트 바인딩
+# click event binding
 root.bind("<Button-1>", toggle_display)  # if click the left mouse, toggle_display called
 
 update_time()
